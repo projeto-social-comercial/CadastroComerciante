@@ -1,11 +1,37 @@
-var empresaController = function($scope, $mdToast, $state, empresaApi) {
+var empresaController = function($scope, $mdToast, $state,
+  empresaApi, enderecoApi) {
 
   $scope.empresa = {};
+  $scope.endereco = {};
 
   $scope.cadastrar = function() {
-    // Criar uma cópia do empresa do $scope.
-    let empresa = angular.copy($scope.empresa);
+    // Criar uma cópia da empresa e endereco do $scope.
 
+    let endereco = angular.copy($scope.endereco);
+
+    enderecoApi.cadastrar(endereco)
+      .then(function(response) {
+
+        let empresa = angular.copy($scope.empresa);
+
+        // Id do endereco
+        endereco = response.data;
+        empresa.id_endereco = endereco.id;
+
+        // Cadastrar empresa com o endereço
+        cadastrarEmpresa(empresa);
+      })
+      .catch(function(error) {
+        var toast = $mdToast.simple()
+          .textContent('Não foi possível cadastrar o endereço.')
+          .position('top right')
+          .action('OK')
+          .hideDelay(6000);
+        $mdToast.show(toast);
+      });
+  };
+
+  let cadastrarEmpresa = function(empresa) {
     empresaApi.cadastrar(empresa)
       .then(function(response) {
 
@@ -13,7 +39,11 @@ var empresaController = function($scope, $mdToast, $state, empresaApi) {
         limparFormulario();
 
         // Redirecionamento de página.
-        $state.transitionTo('empresas', {reload: true, inherit: false, notify: true});
+        $state.transitionTo('empresas', {
+          reload: true,
+          inherit: false,
+          notify: true
+        });
 
         // Caixa de confirmação - Toast
         var toast = $mdToast.simple()
@@ -31,7 +61,7 @@ var empresaController = function($scope, $mdToast, $state, empresaApi) {
           .hideDelay(6000);
         $mdToast.show(toast);
       });
-  };
+  }
 
   let limparFormulario = function() {
 
