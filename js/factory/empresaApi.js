@@ -1,10 +1,10 @@
-// Comerciante - Factory
-var comercianteFactory = function($http) {
+// Empresas - Factory
+var empresaFactory = function($http) {
 
   var baseUrl = "http://127.0.0.1:5000";
 
-  var _cadastrar = function(comerciante) {
-    return $http.post(baseUrl + "/empresa", comerciante);
+  var _cadastrar = function(empresa) {
+    return $http.post(baseUrl + "/empresa", empresa);
   };
 
   var _listar = function() {
@@ -22,4 +22,4 @@ var comercianteFactory = function($http) {
   };
 }
 
-app.factory("comercianteApi", comercianteFactory);
+app.factory("empresaApi", empresaFactory);

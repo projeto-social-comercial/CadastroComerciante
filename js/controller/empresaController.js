@@ -1,23 +1,23 @@
-var comercianteController = function($scope, $mdToast, $state, comercianteApi) {
+var empresaController = function($scope, $mdToast, $state, empresaApi) {
 
-  $scope.comerciante = {};
+  $scope.empresa = {};
 
   $scope.cadastrar = function() {
-    // Criar uma cópia do comerciante do $scope.
-    let comerciante = angular.copy($scope.comerciante);
+    // Criar uma cópia do empresa do $scope.
+    let empresa = angular.copy($scope.empresa);
 
-    comercianteApi.cadastrar(comerciante)
+    empresaApi.cadastrar(empresa)
       .then(function(response) {
 
         // Limpar formulário.
         limparFormulario();
 
         // Redirecionamento de página.
-        $state.transitionTo('comerciantes', {reload: true, inherit: false, notify: true});
+        $state.transitionTo('empresas', {reload: true, inherit: false, notify: true});
 
         // Caixa de confirmação - Toast
         var toast = $mdToast.simple()
-          .textContent('O comerciante foi cadastrado com sucesso!')
+          .textContent('A empresa foi cadastrada com sucesso!')
           .position('top right')
           .action('OK')
           .hideDelay(6000);
@@ -35,15 +35,15 @@ var comercianteController = function($scope, $mdToast, $state, comercianteApi) {
 
   let limparFormulario = function() {
 
-    // Reinicializa a variável comerciante.
-    angular.copy({}, $scope.comerciante);
+    // Reinicializa a variável empresa.
+    angular.copy({}, $scope.empresa);
 
     // Reinicializa o estado do campo para os eventos e validação.
     // É necessário indicar o atributo name no formulário <form>
-    $scope.comercianteForm.$setPristine();
-    $scope.comercianteForm.$setUntouched();
-    $scope.comercianteForm.$setValidity();
+    $scope.empresaForm.$setPristine();
+    $scope.empresaForm.$setUntouched();
+    $scope.empresaForm.$setValidity();
   }
 }
 
-app.controller('ComercianteController', comercianteController);
+app.controller('EmpresaController', empresaController);

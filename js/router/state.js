@@ -4,21 +4,21 @@
 app.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
 
     // Rota padrão.
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/empresas");
 
     // Estados
     $stateProvider
-      .state('comerciante', {
-        url: '/comerciante',
+      .state('empresa', {
+        url: '/empresa',
         title: 'EscolaApp - Cadastrar Aluno',
-        templateUrl: 'aluno.html',
-        controller: 'AlunoController'
+        templateUrl: 'empresa.html',
+        controller: 'EmpresaController'
       })
-      .state('comerciantes', {
-        url: '/comerciantes',
+      .state('empresas', {
+        url: '/empresas',
         title: 'EscolaApp - Listar Alunos',
-        templateUrl: 'alunos.html',
-        controller: 'AlunosController'
+        templateUrl: 'empresas.html',
+        controller: 'EmpresasController'
       });
   })
   //take all whitespace out of string

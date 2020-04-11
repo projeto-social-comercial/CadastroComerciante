@@ -42,145 +42,23 @@
   																				<!-- Moments -->
   <script src="https://momentjs.com/downloads/moment.js"></script>
 <!--===============================================================================================-->
+<script src="js/app.js" type="text/javascript"></script>
 																					<!-- Factorys -->
-	<script src="js/factory/comercianteApi.js" type="text/javascript"></script>
+	<script src="js/factory/empresaApi.js" type="text/javascript"></script>
 <!--===============================================================================================-->
 																				<!-- Controllers -->
-	<script src="js/controller/comercianteController.js" type="text/javascript"></script>
+	<script src="js/controller/empresaController.js" type="text/javascript"></script>
+	<script src="js/controller/empresasController.js" type="text/javascript"></script>
 <!--===============================================================================================-->
+																					<!-- Router -->
+	<script src="js/router/router.js" type="text/javascript"></script>
+	<script src="js/router/state.js" type="text/javascript"></script>
+<!--===============================================================================================-->
+
 </head>
 <body>
 
-	<div class="container-contact100">
-		<div class="wrap-contact100">
-			<form class="contact100-form validate-form" name="comercianteForm">
-				<span class="contact100-form-title">
-					<img src="img/ladoss.png" alt="">
-				</span>
-				<!--========================== Campo Nome Completo ==========================-->
-				<div class="wrap-input100 validate-input bg1" data-validate="Por favor digite seu nome completo aqui!">
-					<span class="label-input100">Nome Completo *</span>
-					<input class="input100" type="text" name="nome" placeholder="Digite aqui seu nome completo!" ng-model="tb_empresa.nome" required>
-				</div>
-				<!--========================== Campo Nome Completo ==========================-->
-
-				<!--========================== Campo Logradouro ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Digite o Logradouro do Comércio">
-					<span class="label-input100">Logradouro*</span>
-					<input class="input100" type="text" name="logradouro" placeholder="Digite o Logradouro seu comércio aqui! " ng-model="tb_endereco.logradouro" required>
-				</div>
-				<!--========================== Campo Logradouro ==========================-->
-
-				<!--========================== Campo Número do local do comércio ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Digite o número, por favor!">
-					<span class="label-input100">Número *</span>
-					<input class="input100" type="text" name="numero" placeholder="Ex.: 123, S/N" ng-model="tb_endereco.numero" required>
-				</div>
-				<!--========================== Campo Número do local do comércio ==========================-->
-
-				<!--========================== Campo Bairro ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Nos diga qual o bairro do seu comércio, por favor!">
-					<span class="label-input100">Bairro *</span>
-					<input class="input100" type="text" name="bairro" placeholder="Digite o bairro seu comércio aqui! " ng-model="tb_endereco.bairro" required>
-				</div>
-				<!--========================== Campo Bairro ==========================-->
-
-				<!--========================== Campo Cidade ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Digite o nome da cidade, por favor!">
-					<span class="label-input100">Cidade *</span>
-					<input class="input100" type="text" name="cidade" placeholder="Digite qual a sua cidade aqui! " ng-model="tb_endereco.cidade" required>
-				</div>
-				<!--========================== Campo Cidade ==========================-->
-
-				<!--========================== Campo Ponto de Referência ==========================-->
-				<div class="wrap-input100 bg1 rs1-wrap-input100">
-					<span class="label-input100">Ponto de Referência </span>
-					<input class="input100" type="text" name="complemento" placeholder="Ex.: Em frente a Loja X " ng-model="tb_endereco.ponto_referencia" required>
-				</div>
-				<!--========================== Campo Ponto de Referência ==========================-->
-
-				<!--========================== Campo Complemento ==========================-->
-				<div class="wrap-input100 bg1 rs1-wrap-input100">
-					<span class="label-input100">Complemento </span>
-					<input class="input100" type="text" name="complemento" placeholder="Ex.: Apto. 000" ng-model="tb_endereco.ponto_referencia" required>
-				</div>
-				<!--========================== Campo Complemento ==========================-->
-
-				<!--========================== Campo CEP ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Digite o CEP, por favor!">
-					<span class="label-input100">CEP *</span>
-					<input class="input100" type="text" name="cep" placeholder="Ex.: 00000-000" ng-model="tb_endereco.cep" required>
-				</div>
-				<!--========================== Campo CEP ==========================-->
-
-				<!--========================== Campo Estado ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Escolha o Estado, por favor!">
-					<span class="label-input100">Estado *</span>
-					<select class="input100" ng-model="tb_endereco.estado" required>
-		        <option selected></option>
-						<option value="AC">Acre</option>
-						<option value="AL">Alagoas</option>
-						<option value="AP">Amapá</option>
-						<option value="AM">Amazonas</option>
-						<option value="BA">Bahia</option>
-						<option value="CE">Ceará</option>
-						<option value="DF">Distrito Federal</option>
-						<option value="ES">Espírito Santo</option>
-						<option value="GO">Goiás</option>
-						<option value="MA">Maranhão</option>
-						<option value="MT">Mato Grosso</option>
-						<option value="MS">Mato Grosso do Sul</option>
-						<option value="MG">Minas Gerais</option>
-						<option value="PA">Pará</option>
-						<option value="PB">Paraíba</option>
-						<option value="PR">Paraná</option>
-						<option value="PE">Pernambuco</option>
-						<option value="PI">Piauí</option>
-						<option value="RJ">Rio de Janeiro</option>
-						<option value="RN">Rio Grande do Norte</option>
-						<option value="RS">Rio Grande do Sul</option>
-						<option value="RO">Rondônia</option>
-						<option value="RR">Roraima</option>
-						<option value="SC">Santa Catarina</option>
-						<option value="SP">São Paulo</option>
-						<option value="SE">Sergipe</option>
-						<option value="TO">Tocantins</option>
-		      </select>
-				</div>
-				<!--========================== Campo Estado ==========================-->
-
-				<!--========================== Campo Facebook ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Digite o link do perfil da loja aqui, por favor!">
-					<span class="label-input100">Facebook *</span>
-					<input class="input100" type="text" name="facebook" placeholder="Digite o link do perfil da loja aqui! " ng-model="tb_empresa.facebook" required>
-				</div>
-				<!--========================== Campo Facebook ==========================-->
-
-				<!--========================== Campo Instagram ==========================-->
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate = "Digite o link do perfil da loja aqui, por favor!">
-					<span class="label-input100">Instagram *</span>
-					<input class="input100" type="text" name="instagram" placeholder="Digite o link do perfil da loja aqui! " ng-model="tb_empresa.instagram" required>
-				</div>
-				<!--========================== Campo Instagram ==========================-->
-
-				<!--========================== Campo Celular ==========================-->
-				<div class="wrap-input100 validate-input bg1" data-validate = "Digite o seu número de celular aqui!">
-					<span class="label-input100">Celular (De preferência o Whatsapp) *</span>
-					<input class="input100" type="text" name="celular" placeholder="Ex.: (83) 9 0000-0000 " ng-model="tb_empresa.celular" required>
-				</div>
-				<!--========================== Campo Celular ==========================-->
-
-				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn btn-block" ng-click="cadastrar()">
-						<span>
-							Enviar
-							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
-						</span>
-					</button>
-				</div>
-			</form>
-		</div>
-	</div>
+	<ui-view></ui-view>
 
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -208,7 +86,7 @@
 						$('.js-show-service').slideUp();
 						$('.js-show-service').slideDown();
 					}
-				});
+				});home
 			});
 		})
 	</script>
@@ -219,29 +97,6 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/noui/nouislider.min.js"></script>
-	<script>
-	    var filterBar = document.getElementById('filter-bar');
-
-	    noUiSlider.create(filterBar, {
-	        start: [ 1500, 3900 ],
-	        connect: true,
-	        range: {
-	            'min': 1500,
-	            'max': 7500
-	        }
-	    });
-
-	    var skipValues = [
-	    document.getElementById('value-lower'),
-	    document.getElementById('value-upper')
-	    ];
-
-	    filterBar.noUiSlider.on('update', function( values, handle ) {
-	        skipValues[handle].innerHTML = Math.round(values[handle]);
-	        $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
-	        $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
-	    });
-	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
