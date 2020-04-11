@@ -1,89 +1,47 @@
 <div class="container-contact100">
-	<div class="wrap-contact100">
 		<form class="contact100-form validate-form" name="comercianteForm">
 			<span class="contact100-form-title">
 				<img src="img/ladoss.png" alt="">
 			</span>
 
-      <div ng-controller="AppCtrl" ng-cloak >
-        <md-content class="md-padding" layout-xs="column" layout="row">
-          <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Card with image</span>
-                  <span class="md-subhead">Large</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                  <div class="md-media-lg card-media"></div>
-                </md-card-title-media>
-              </md-card-title>
-              <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card md-theme="{{ showDarkTheme ? 'dark-orange' : 'default' }}" md-theme-watch>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Card with image</span>
-                  <span class="md-subhead">Extra Large</span>
-                </md-card-title-text>
-              </md-card-title>
-              <md-card-content layout="row" layout-align="space-between">
-                <div class="md-media-xl card-media"></div>
-
-                <md-card-actions layout="column">
-                  <md-button class="md-icon-button" aria-label="Favorite">
-                    <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Settings">
-                    <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                  </md-button>
-                  <md-button class="md-icon-button" aria-label="Share">
-                    <md-icon md-svg-icon="img/icons/baseline-share-24px.svg"></md-icon>
-                  </md-button>
-                </md-card-actions>
-              </md-card-content>
-            </md-card>
-          </div>
-          <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-purple' : 'default' }}" md-theme-watch>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Card with image</span>
-                  <span class="md-subhead">Small</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                  <div class="md-media-sm card-media"></div>
-                </md-card-title-media>
-              </md-card-title>
-              <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>
-              </md-card-actions>
-            </md-card>
-            <md-card md-theme="{{ showDarkTheme ? 'dark-blue' : 'default' }}" md-theme-watch>
-              <md-card-title>
-                <md-card-title-text>
-                  <span class="md-headline">Card with image</span>
-                  <span class="md-subhead">Medium</span>
-                </md-card-title-text>
-                <md-card-title-media>
-                  <div class="md-media-md card-media"></div>
-                </md-card-title-media>
-              </md-card-title>
-              <md-card-actions layout="row" layout-align="end center">
-                <md-button>Action 1</md-button>
-                <md-button>Action 2</md-button>
-              </md-card-actions>
-            </md-card>
-            <div layout layout-padding layout-align="center end" style="height:200px">
-              <md-checkbox ng-model="showDarkTheme">Use 'Dark' Themed Cards</md-checkbox>
-            </div>
-          </div>
-        </md-content>
-      </div>
+			<div>
+				<button class="contact100-form-btn btn-block" ng-click="listar()">
+          <span>
+            Listar
+            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+          </span>
+        </button>
+			  <table class="table table-hover" >
+			    <thead class="thead-light">
+			      <tr align="center">
+			        <th scope="col">Código</th>
+			        <th scope="col">Nome Empresa</th>
+			        <th scope="col">Logradouro</th>
+			        <th scope="col">Número</th>
+			        <th scope="col">Complemento</th>
+			        <th scope="col">Cidade</th>
+			        <th scope="col">Estado</th>
+							<th scope="col">CEP</th>
+							<th scope="col">Ponto de Referência</th>
+							<th scope="col">E-mail</th>
+							<th scope="col">Celular</th>
+							<th scope="col">Instagram</th>
+							<th scope="col">Facebook</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			      <tr ng-repeat="empresa in empresas">
+			        <td scope="row">{{empresa.id}}</td>
+			        <td scope="row">{{empresa.nome}}</td>
+			        <td scope="row">{{empresa.id_endereco.logradouro}</td>
+			        <td scope="row">{{empresa.email}}</td>
+			        <td scope="row">{{empresa.telefone}}</td>
+			        <td scope="row">{{empresa.instagram}}</td>
+			        <td scope="row">{{empresa.facebook}}</td>
+			      </tr>
+			    </tbody>
+			  </table>
+			</div>
 
 		</form>
 	</div>
