@@ -6,7 +6,6 @@ var empresaController = function($scope, $mdToast, $state,
 
   $scope.cadastrar = function() {
     // Criar uma cópia da empresa e endereco do $scope.
-
     let endereco = angular.copy($scope.endereco);
 
     enderecoApi.cadastrar(endereco)
@@ -22,12 +21,9 @@ var empresaController = function($scope, $mdToast, $state,
         cadastrarEmpresa(empresa);
       })
       .catch(function(error) {
-        var toast = $mdToast.simple()
-          .textContent('Não foi possível cadastrar o endereço.')
-          .position('top right')
-          .action('OK')
-          .hideDelay(6000);
-        $mdToast.show(toast);
+        // Exibir erros de validação do serviço.
+        let errors = error.data.errors;
+        mostrarErrosValidacao(errors);
       });
   };
 
@@ -54,13 +50,21 @@ var empresaController = function($scope, $mdToast, $state,
         $mdToast.show(toast);
       })
       .catch(function(error) {
-        var toast = $mdToast.simple()
-          .textContent('Algum problema ocorreu no envio dos dados.')
-          .position('top right')
-          .action('OK')
-          .hideDelay(6000);
-        $mdToast.show(toast);
+        // Exibir erros de validação do serviço.
+        let errors = error.data.errors;
+        mostrarErrosValidacao(errors);
       });
+  }
+
+  let mostrarErrosValidacao = function(errors) {
+    for (mensagem of errors) {
+      var toast = $mdToast.simple()
+        .textContent(mensagem)
+        .position('top right')
+        .action('OK')
+        .hideDelay(6000);
+      $mdToast.show(toast);
+    }
   }
 
   let limparFormulario = function() {
