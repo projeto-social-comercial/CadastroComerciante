@@ -7,6 +7,7 @@ var empresasController = function($scope, $mdToast, empresaApi) {
     empresaApi.listar()
       .then(function(response) {
         $scope.empresas = response.data;
+
       })
       .catch(function(error) {
 

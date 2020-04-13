@@ -11,36 +11,47 @@
             <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
           </span>
         </button>
-			  <table class="table table-hover" >
-			    <thead class="thead-light">
-			      <tr align="center">
-			        <th scope="col">Código</th>
-			        <th scope="col">Nome Empresa</th>
-			        <th scope="col">Logradouro</th>
-			        <th scope="col">Número</th>
-			        <th scope="col">Complemento</th>
-			        <th scope="col">Cidade</th>
-			        <th scope="col">Estado</th>
-							<th scope="col">CEP</th>
-							<th scope="col">Ponto de Referência</th>
-							<th scope="col">E-mail</th>
-							<th scope="col">Celular</th>
-							<th scope="col">Instagram</th>
-							<th scope="col">Facebook</th>
-			      </tr>
-			    </thead>
-			    <tbody>
-			      <tr ng-repeat="empresa in empresas">
-			        <td scope="row">{{empresa.id}}</td>
-			        <td scope="row">{{empresa.nome}}</td>
-			        <td scope="row">{{empresa.id_endereco.logradouro}</td>
-			        <td scope="row">{{empresa.email}}</td>
-			        <td scope="row">{{empresa.telefone}}</td>
-			        <td scope="row">{{empresa.instagram}}</td>
-			        <td scope="row">{{empresa.facebook}}</td>
-			      </tr>
-			    </tbody>
-			  </table>
+
+				<!-- Tabela de Empresas -->
+				<div>
+				  <table class="table table-hover">
+				    <thead class="thead-light">
+				      <tr>
+				        <th scope="col">Código</th>
+				        <th scope="col">Nome da Empresa</th>
+				        <th scope="col">Logradouro</th>
+				        <th scope="col">Número</th>
+				        <th scope="col">Complemento</th>
+				        <th scope="col">Cidade</th>
+				        <th scope="col">Estado</th>
+								<th scope="col">CEP</th>
+								<th scope="col">Ponto de Referência</th>
+								<th scope="col">E-mail</th>
+								<th scope="col">Telefone</th>
+								<th scope="col">Instagram</th>
+								<th scope="col">Facebook</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr ng-repeat="empresa in empresas">
+				        <td scope="row">{{empresa.id}}</td>
+				        <td scope="row">{{empresa.nome}}</td>
+				        <td scope="row">{{endereco.logradouro}}</td>
+				        <td scope="row">{{endereco.numero}}</td>
+				        <td scope="row">{{endereco.complemento}}</td>
+				        <td scope="row">{{endereco.cidade}}</td>
+				        <td scope="row">{{endereco.estado}}</td>
+								<td scope="row">{{endereco.cep}}</td>
+								<td scope="row">{{endereco.ponto_referencia}}</td>
+								<td scope="row">{{empresa.email}}</td>
+								<td scope="row">{{empresa.telefone}}</td>
+								<td scope="row">{{empresa.instagram}}</td>
+								<td scope="row">{{empresa.facebook}}</td>
+				      </tr>
+				    </tbody>
+				  </table>
+				</div>
+
 			</div>
 
 		</form>
